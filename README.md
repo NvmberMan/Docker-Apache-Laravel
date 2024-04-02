@@ -63,3 +63,64 @@ If you encounter permission errors, run the following command:
 ```bash
 make permission
 ```
+
+
+## For Windows
+
+### 1. Update Docker Compose Configuration
+
+Navigate to your project directory and update the `docker-compose.yml` file:
+
+- In the `services > app > volumes` section, replace `./<your laravel folder>:/var/www/html` with the path to your Laravel folder.
+- In the `services > mysql_db > environment` section, adjust the variables according to your Laravel `.env` file.
+
+### 2. Update Laravel Configuration
+
+Open the `.env` file in your Laravel project and update the `DB_HOST` variable to `mysql_db`.
+
+### 3. Run Setup
+
+Execute the following command to set up your Docker environment:
+
+```bash
+docker-compose build --no-cache --force-rm
+```
+
+### 4. Run Setup
+
+Execute the following command to set up your Docker environment:
+
+```bash
+docker-compose build --no-cache --force-rm
+docker-compose up -d
+docker exec app bash -c "composer update"
+```
+Replace "app" with your Container Name that containing your laravel-app
+
+### 5. Run Data Migration and Seeder (Optional)
+
+If you have migrations or seeders, you can run the following command:
+
+```bash
+	docker exec app bash -c "php artisan migrate:fresh --seed"
+	docker exec app bash -c "php artisan db:seed"
+```
+### 6. Resolve Permission Errors (Optional)
+
+If you encounter permission errors, run the following command:
+
+```bash
+	docker exec app bash -c "sudo chmod -R 777 storage"
+	docker exec app bash -c "php artisan cache:clear"
+	docker exec app bash -c "php artisan config:clear"
+	docker exec app bash -c "php artisan config:cache"
+```
+
+
+
+
+
+
+
+
+
