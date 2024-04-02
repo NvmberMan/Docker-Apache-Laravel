@@ -102,18 +102,18 @@ Replace "app" with your Container Name that containing your laravel-app
 If you have migrations or seeders, you can run the following command:
 
 ```bash
-	docker exec app bash -c "php artisan migrate:fresh --seed"
-	docker exec app bash -c "php artisan db:seed"
+docker exec app bash -c "php artisan migrate:fresh --seed"
+docker exec app bash -c "php artisan db:seed"
 ```
 ### 6. Resolve Permission Errors (Optional)
 
 If you encounter permission errors, run the following command:
 
 ```bash
-	docker exec app bash -c "sudo chmod -R 777 storage"
-	docker exec app bash -c "php artisan cache:clear"
-	docker exec app bash -c "php artisan config:clear"
-	docker exec app bash -c "php artisan config:cache"
+docker exec app bash -c "sudo chmod -R 777 storage"
+docker exec app bash -c "php artisan cache:clear"
+docker exec app bash -c "php artisan config:clear"
+docker exec app bash -c "php artisan config:cache"
 ```
 
 
