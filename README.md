@@ -2,7 +2,7 @@
 
 This guide will help you set up a Laravel project using Docker. Please follow the instructions carefully.
 
-## For Linux
+## For Linux :penguin:
 
 ### 1. Installation
 
@@ -65,7 +65,7 @@ make permission
 ```
 
 
-## For Windows
+## For Windows :desktop_computer:
 
 ### 1. Update Docker Compose Configuration
 
